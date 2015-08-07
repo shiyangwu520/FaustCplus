@@ -4,21 +4,20 @@
 $rs = array();
 
 switch($_GET['action']){
-
-	//ÉÏ´«ÁÙÊ±Í¼Æ¬
+	//ä¸Šä¼ ä¸´æ—¶å›¾ç‰‡
 	case 'uploadtmp':
-		$file = 'uploadtmp.jpg';
+        $rs['files'] = $_FILES;
+		$file = './avatar_0.jpg';
 		@move_uploaded_file($_FILES['Filedata']['tmp_name'], $file);
 		$rs['status'] = 1;
 		$rs['url'] = './php/' . $file;
 	break;
-
-	//ÉÏ´«ÇĞÍ·Ïñ
+	//ä¸Šä¼ åˆ‡å¤´åƒ
 	case 'uploadavatar':
 		$input = file_get_contents('php://input');
 		$data = explode('--------------------', $input);
-		@file_put_contents('./avatar_1.jpg', $data[0]);
-		@file_put_contents('./avatar_2.jpg', $data[1]);
+		@file_put_contents("./avatar_1.jpg", $data[0]);
+		@file_put_contents("./avatar_2.jpg", $data[1]);
 		$rs['status'] = 1;
 	break;
 
