@@ -7,10 +7,9 @@ switch($_GET['action']){
 	//上传临时图片
 	case 'uploadtmp':
         $rs['files'] = $_FILES;
-		$file = './avatar_0.jpg';
-		@move_uploaded_file($_FILES['Filedata']['tmp_name'], $file);
+		@move_uploaded_file($_FILES['Avatardata']['tmp_name'], "./avatar_1.jpg");
+        @move_uploaded_file($_FILES['Sourceddata']['tmp_name'], "./avatar_2.jpg");
 		$rs['status'] = 1;
-		$rs['url'] = './php/' . $file;
 	break;
 	//上传切头像
 	case 'uploadavatar':
